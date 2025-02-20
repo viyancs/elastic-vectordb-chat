@@ -8,6 +8,9 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write  # ⬅️ Required for pushing images
+      contents: read
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
