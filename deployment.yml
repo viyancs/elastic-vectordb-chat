@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: vyn-elastic-vectordb-chat
-          image: 'quay.io/jhurlocker/vyn-elastic-vectordb-chat'
+          image: 'ghcr.io/viyancs/vyn-elastic-vectordb-chat:latest'
           ports:
             - containerPort: 8080
               protocol: TCP
