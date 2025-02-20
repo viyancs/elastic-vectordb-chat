@@ -84,7 +84,6 @@ llm = ChatOpenAI(
         api_key="sk-no-key-required",
         openai_api_base=model_service,
         streaming=True,
-        verify_ssl=False,
         callbacks=[StreamlitCallbackHandler(st.empty(),
                                             expand_new_thoughts=True,
                                             collapse_completed_thoughts=True)])
