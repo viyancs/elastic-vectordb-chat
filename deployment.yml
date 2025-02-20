@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: viyan-elastic-vectordb-chat
-          image: 'ghcr.io/viyancs/viyan-elastic-vectordb-chat:latest'
+          image: 'ghcr.io/viyancs/vyn-elastic-vectordb-chat:latest'
           ports:
             - containerPort: 8080
               protocol: TCP
@@ -35,7 +35,7 @@ spec:
             - name: ELASTIC_URL
               value: 'https://elasticsearch-sample-es-http.elastic-vectordb.svc.cluster.local:9200'
             - name: ELASTIC_PASS
-              value: 'g49dute3l80o3L8ECf0XXf32'
+              value: 'your pass'
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
