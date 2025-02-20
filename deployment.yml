@@ -1,29 +1,29 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: vyn-elastic-vectordb-chat
-  namespace: vyn-elastic-vectordb-chat
+  name: viyan-elastic-vectordb-chat
+  namespace: viyan-elastic-vectordb-chat
   labels:
-    app: vyn-elastic-vectordb-chat
-    app.kubernetes.io/component: vyn-elastic-vectordb-chat
-    app.kubernetes.io/instance: vyn-elastic-vectordb-chat
-    app.kubernetes.io/name: vyn-elastic-vectordb-chat
-    app.kubernetes.io/part-of: vyn-elastic-vectordb-chat-app
-    app.openshift.io/runtime-namespace: vyn-elastic-vectordb-chat
+    app: viyan-elastic-vectordb-chat
+    app.kubernetes.io/component: viyan-elastic-vectordb-chat
+    app.kubernetes.io/instance: viyan-elastic-vectordb-chat
+    app.kubernetes.io/name: viyan-elastic-vectordb-chat
+    app.kubernetes.io/part-of: viyan-elastic-vectordb-chat-app
+    app.openshift.io/runtime-namespace: viyan-elastic-vectordb-chat
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: vyn-elastic-vectordb-chat
+      app: viyan-elastic-vectordb-chat
   template:
     metadata:
       labels:
-        app: vyn-elastic-vectordb-chat
-        deployment: vyn-elastic-vectordb-chat
+        app: viyan-elastic-vectordb-chat
+        deployment: viyan-elastic-vectordb-chat
     spec:
       containers:
-        - name: vyn-elastic-vectordb-chat
-          image: 'ghcr.io/viyancs/vyn-elastic-vectordb-chat:latest'
+        - name: viyan-elastic-vectordb-chat
+          image: 'ghcr.io/viyancs/viyan-elastic-vectordb-chat:latest'
           ports:
             - containerPort: 8080
               protocol: TCP
@@ -56,14 +56,14 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: vyn-elastic-vectordb-chat
-  namespace: vyn-elastic-vectordb-chat
+  name: viyan-elastic-vectordb-chat
+  namespace: viyan-elastic-vectordb-chat
   labels:
-    app: vyn-elastic-vectordb-chat
-    app.kubernetes.io/component: vyn-elastic-vectordb-chat
-    app.kubernetes.io/instance: vyn-elastic-vectordb-chat
-    app.kubernetes.io/name: vyn-elastic-vectordb-chat
-    app.kubernetes.io/part-of: vyn-elastic-vectordb-chat-app
+    app: viyan-elastic-vectordb-chat
+    app.kubernetes.io/component: viyan-elastic-vectordb-chat
+    app.kubernetes.io/instance: viyan-elastic-vectordb-chat
+    app.kubernetes.io/name: viyan-elastic-vectordb-chat
+    app.kubernetes.io/part-of: viyan-elastic-vectordb-chat-app
     app.openshift.io/runtime-version: latest
 spec:
   ipFamilies:
@@ -82,27 +82,27 @@ spec:
   ipFamilyPolicy: SingleStack
   sessionAffinity: None
   selector:
-    app: vyn-elastic-vectordb-chat
-    deployment: vyn-elastic-vectordb-chat
+    app: viyan-elastic-vectordb-chat
+    deployment: viyan-elastic-vectordb-chat
 ---
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  name: vyn-elastic-vectordb-chat
-  namespace: vyn-elastic-vectordb-chat
+  name: viyan-elastic-vectordb-chat
+  namespace: viyan-elastic-vectordb-chat
   labels:
-    app: vyn-elastic-vectordb-chat
-    app.kubernetes.io/component: vyn-elastic-vectordb-chat
-    app.kubernetes.io/instance: vyn-elastic-vectordb-chat
-    app.kubernetes.io/name: vyn-elastic-vectordb-chat
-    app.kubernetes.io/part-of: vyn-elastic-vectordb-chat-app
+    app: viyan-elastic-vectordb-chat
+    app.kubernetes.io/component: viyan-elastic-vectordb-chat
+    app.kubernetes.io/instance: viyan-elastic-vectordb-chat
+    app.kubernetes.io/name: viyan-elastic-vectordb-chat
+    app.kubernetes.io/part-of: viyan-elastic-vectordb-chat-app
     app.openshift.io/runtime-version: latest
   annotations:
     openshift.io/host.generated: 'true'
 spec:
   to:
     kind: Service
-    name: vyn-elastic-vectordb-chat
+    name: viyan-elastic-vectordb-chat
     weight: 100
   port:
     targetPort: 8501-tcp
