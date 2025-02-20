@@ -14,6 +14,7 @@ import time
 import json
 import os 
 import re
+import httpx
 
 #####################################
 ## GET ENVIRONMENT VARIABLES 
@@ -80,10 +81,13 @@ prompt = ChatPromptTemplate.from_messages([
 #####################################
 ## RAG CODE ADDED 
 #####################################
+# Create an HTTP client with SSL verification disabled
+http_client = httpx.Client(verify=False)
 llm = ChatOpenAI(
         api_key="sk-no-key-required",
         openai_api_base=model_service,
         streaming=True,
+        http_client=http_client,  # Pass custom HTTP client with SSL disabled
         callbacks=[StreamlitCallbackHandler(st.empty(),
                                             expand_new_thoughts=True,
                                             collapse_completed_thoughts=True)])
